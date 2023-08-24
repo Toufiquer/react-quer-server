@@ -9,6 +9,7 @@ const {
 /* request method:post || Save Auth || req.body */
 module.exports.saveAuth = async (req, res, next) => {
   try {
+    console.log(req.body, " => Line No: 12");
     const result = await authServiceSave(req.body);
     res.status(200).send({
       status: "success",

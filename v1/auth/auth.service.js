@@ -2,7 +2,9 @@ const { authModel } = require("./auth.model");
 
 module.exports.authServiceSave = async (data) => {
   // @ create
+  console.log(data, " => Line No: 6");
   const result = await authModel.create({ ...data });
+  console.log(result, " => Line No: 7");
   return result;
 };
 module.exports.authServiceGetId = async (id) => {

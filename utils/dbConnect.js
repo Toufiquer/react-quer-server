@@ -7,7 +7,7 @@ module.exports.DBConnect = async () => {
       .connect(process.env.DATABASE, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
+        // useCreateIndex: true,
       })
       .then(() => {
         console.log("mongoose is connected");
