@@ -15,7 +15,7 @@ module.exports.saveAuth = async (req, res, next) => {
     res.status(200).send({
       status: "success",
       message: "Auth successfully saved",
-      data: "result",
+      data: result,
       token,
     });
   } catch (err) {
