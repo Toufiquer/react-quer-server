@@ -1,3 +1,4 @@
+const { creteToken } = require("../../utils/jwt");
 const {
   authServiceSave,
   authServiceGet,
@@ -9,12 +10,13 @@ const {
 /* request method:post || Save Auth || req.body */
 module.exports.saveAuth = async (req, res, next) => {
   try {
-    console.log(req.body, " => Line No: 12");
+    const token = creteToken(req.body.email);
     const result = await authServiceSave(req.body);
     res.status(200).send({
       status: "success",
       message: "Auth successfully saved",
-      data: result,
+      data: "result",
+      token,
     });
   } catch (err) {
     res.status(400).send({
