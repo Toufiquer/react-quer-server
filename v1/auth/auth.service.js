@@ -7,6 +7,11 @@ module.exports.authServiceSave = async (data) => {
   console.log(result, " => Line No: 7");
   return result;
 };
+module.exports.authLogIn = async (email) => {
+  // @ find one
+  const result = await authModel.findOne({ email: email });
+  return result;
+};
 module.exports.authServiceGetId = async (id) => {
   // @ find one
   const result = await authModel.findOne({ _id: id });

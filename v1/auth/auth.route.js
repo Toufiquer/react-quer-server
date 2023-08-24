@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authRouter = require("./auth.controller");
 router.route("/").get(authRouter.getAuth).post(authRouter.saveAuth);
+router.route("/logIn").get(authRouter.getAuth).post(authRouter.authLogIn);
 
 //  * if has an id
 router

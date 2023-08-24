@@ -1,5 +1,6 @@
 const { creteToken } = require("../../utils/jwt");
 const {
+  authLogIn,
   authServiceSave,
   authServiceGet,
   authServiceGetId,
@@ -12,6 +13,25 @@ module.exports.saveAuth = async (req, res, next) => {
   try {
     const token = creteToken(req.body.email);
     const result = await authServiceSave(req.body);
+    res.status(200).send({
+      status: "success",
+      message: "Auth successfully saved",
+      data: result,
+      token,
+    });
+  } catch (err) {
+    res.status(400).send({
+      status: "Auth failed to Save",
+      message: err.message,
+    });
+  }
+};
+/* request method:post || Get Auth by id || req.body */
+module.exports.authLogIn = async (req, res, next) => {
+  try {
+    const token = creteToken(req.body.email);
+    const result = await authLogIn(req.body.email);
+    console.log(result);
     res.status(200).send({
       status: "success",
       message: "Auth successfully saved",
